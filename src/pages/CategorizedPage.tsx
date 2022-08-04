@@ -8,15 +8,15 @@ export function CategorizedPage() {
   const [products, setProducts] = useState<ProductItem[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/products`)
+    fetch(`http://localhost:4000/products/?categoryId=${params.itemId}`)
       .then((resp) => resp.json())
       .then((itemsFromServer) => setProducts(itemsFromServer));
   }, []);
 
-  function getCategorizedProducts(products: ProductItem[]) {
-    return products.filter(
-      (product) => product.categoryId === Number(params.itemId)
-    );
-  }
-  return <Store products={getCategorizedProducts(products)} />;
+  // function getCategorizedProducts(products: ProductItem[]) {
+  //   return products.filter(
+  //     (product) => product.categoryId === Number(params.itemId)
+  //   );
+  // }
+  return <Store products={products} />;
 }

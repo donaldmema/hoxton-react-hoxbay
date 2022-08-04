@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import { ProductItem } from "../data/types";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { BasketItem, ProductItem } from "../data/types";
 
 export function ProductPage() {
   const params = useParams();
 
   const [product, setProduct] = useState<ProductItem>();
+  const [basket, setBasket] = useState<BasketItem[]>([]);
 
   useEffect(() => {
     fetch(`http://localhost:4000/products/${params.productId}`)
@@ -38,7 +39,16 @@ export function ProductPage() {
         <p>{product.description}</p>
         <p>£{product.price}</p>
         {/* <!-- Once you click in this button, the user should be redirected to the Basket page --> */}
-        <button>Add to basket</button>
+        <Link to="/basket">
+          <button
+            onClick={() => {
+              <Navigate to="/basket" />;
+              console.log("Should be redirected to the Basket page");
+            }}
+          >
+            Add to basket
+          </button>
+        </Link>
       </div>
     </section>
   );

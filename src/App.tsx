@@ -1,7 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import { BasketPage } from "./pages/BasketPage";
 import { CategoriesPage } from "./pages/CategoriesPage";
 import { CategorizedPage } from "./pages/CategorizedPage";
+import { PageNotFound } from "./pages/PageNotFound";
 import { ProductPage } from "./pages/ProductPage";
 import { ProductsPage } from "./pages/ProductsPage";
 
@@ -16,9 +18,8 @@ function App() {
           <Route path="/products/:productId" element={<ProductPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/categories/:itemId" element={<CategorizedPage />} />
-          {/* 
           <Route path="/basket" element={<BasketPage />} />
-          <Route path="*" element={<PageNotFound />} /> */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
     </>
