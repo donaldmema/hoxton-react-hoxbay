@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import { ProductsItemPage } from "./pages/ProductsItemPage";
+import { ProductPage } from "./pages/ProductPage";
 import { ProductsPage } from "./pages/ProductsPage";
 
 function App() {
@@ -8,10 +8,10 @@ function App() {
     <>
       <Header />
       <main>
-        {/* Create your routes here. Don't forget to install the router package! */}
         <Routes>
+          <Route index element={<Navigate to="/products" />} />
           <Route path="/products" element={<ProductsPage />} />
-          <Route path="/store/:itemId" element={<ProductsItemPage />} />
+          <Route path="/products/:productId" element={<ProductPage />} />
           {/* <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/categories/:itemId" element={<CategoriesItemPage />} />
           <Route path="/basket" element={<BasketPage />} />
