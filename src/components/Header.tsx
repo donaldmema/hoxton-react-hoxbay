@@ -8,7 +8,7 @@ function Header() {
       className="header"
       style={{
         // @ts-ignore
-        ["--random-colour"]: `var(--${randomColor})`,
+        ["--border-colour"]: `${randomColor}`,
       }}
     >
       <div className="header__logo" style={{ color: randomColor }}>
